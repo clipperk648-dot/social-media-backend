@@ -63,8 +63,7 @@ const Comment = mongoose.model('Comment', commentSchema);
 const Notification = mongoose.model('Notification', notificationSchema);
 
 // Google Sheets Setup
- const credentials = process.env.GOOGLE_CREDENTIALS_BASE64 
-  ? JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString())
+ const credentials = process.env.GOOGLE_CREDENTIALS  ? JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString())
   : JSON.parse(fs.readFileSync('./credentials.json'));const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets']
